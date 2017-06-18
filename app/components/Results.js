@@ -34,10 +34,19 @@ class Results extends Component {
 	// }
 	render() {
 		return (
-			<div>
-				<p>Results - Testing</p>
-				<PanelResults />
-			</div>
+<div className="card">
+  <div className="card-header text-center">
+    Results
+  </div>
+  <div className="card-block">
+<div class="card">
+  <div class="card-block">
+    <h4 className="card-title">Google<a href="www.google.com" className="listings btn btn-primary">Save Favorite</a></h4>
+    <p className="card-text">www.google.com</p>
+  </div>
+</div>
+  </div>
+</div>
 		);
 	}
 }

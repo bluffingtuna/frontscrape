@@ -3,7 +3,7 @@ import History from './History';
 import Favorites from './Favorites';
 import Contributions from './Contributions';
 
-class User extends Component {
+class Account extends Component {
 	// constructor() {
 	// 	super();
 	// 	this.state = {
@@ -26,16 +26,20 @@ class User extends Component {
 	// }
 	render() {
 		return (
-			<div>
+			<div className="container-fluid">
+				<br/>
 				<History />
+				<br/>
 				<Favorites />
+				<br/>
 				<Contributions />
+				<br/>
 			</div>
 		);
 	}
 }
 
-export default User;
+export default Account;
 
 			// <div>
 			// 	<Search setParent={this.setParent}/>
