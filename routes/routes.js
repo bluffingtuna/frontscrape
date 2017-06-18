@@ -1,24 +1,27 @@
-var Benchmark = require("benchmark");
+module.exports = function(app, io){
+    app.get('/', (req, res)=>{//root route sends index.html
+        res.sendFile('../public/index.html');
+    });
+    
+    app.get('/login', (req, res)=>{//sends login page
+        res.sendFile('../public/login.html');
+    });
 
-var stuff = [10, 34, 56, 67, 93, 120, 137, 168, 259, 280, 311, 342, 413, 514];
+    io.on('connection', socket=>{
+        console.log('socket connected on ' + socket.id);
 
-var random_value = stuff[Math.floor(Math.random() * 14)];
+        socket.emit('bundle', { hello: 'world' });
 
-// Write a for loop that looks at each index
-//  of the array to see if it matches the random value
+        socket.on('send more', ()=>{
+            socket.emit('bundle', {hello: 'world'});
+        });
 
-// If it does match the random value display
-//  an alert box with the index of the array and the value
-var startTime = new Date();
-console.time("test")
-for (var i = 0; i < stuff.length; i++) {
-    if (stuff[i] == random_value)
-        console.log(`index: ${i}, value: ${stuff[i]}`)
+        socket.on('data', data=>{
+            console.log(data);
+        });
+
+        socket.on('disconnect', function(){
+            console.log('user disconnected');
+        });
+    });
 }
-console.timeEnd("test")
-
-var endTime = new Date();
-var timediff = endTime - startTime;
-var timediffs = timediff / 1000;
-console.log(timediff);
-console.log(timediffs);

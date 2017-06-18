@@ -1,44 +1,32 @@
 // Require our dependecies
 var express = require("express");
 var mongoose = require("mongoose");
-var bluebird = require("bluebird");
 var bodyParser = require("body-parser");
-var routes = require("./routes/routes");
-
-// Set up a default port, configure mongoose, configure our middleware
-var PORT = process.env.PORT || 3000;
-mongoose.Promise = bluebird;
+var PORT = process.env.PORT || 3000;//port from environment variables, default to 3000
+mongoose.Promise = Promise;//changes mongoose asynchronous protocol from bluebird to native promises
 var app = express();
-// const http = require('http').Server(app);
-// const io = require('socket.io')(http);
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(express.static(__dirname + "/public"));
-app.use("/", routes);
-
-var db = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
+const http = require('http').Server(app);//instantiates node-native http server based on app
+const io = require('socket.io')(http);//mounts io protocol on native server
+var db = process.env.MONGODB_URI || "mongodb://localhost/frontscrape"; //sets up database from environment variable, defaults to mongodb localhost
 
 // Connect mongoose to our database
-mongoose.connect(db, function(error) {
+mongoose.connect(db, err=>{
   // Log any errors connecting with mongoose
-  if (error) {
-    console.error(error);
+  if (err) {
+    console.error(`mongoose connection error: ${err}`);
   }
   // Or log a success message
   else {
-    console.log("mongoose connection is successful");
+    console.log(`mongoose connection successful`);
   }
 });
 
-// io.on('connection', function (socket) {
-//   console.log('socket connected on ' + socket.id)
-//   socket.emit('news', { hello: 'world' });
-//   socket.on('my other event', function (data) {
-//     console.log(data);
-//   });
-// });
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(express.static(__dirname + "/public")); //serves public folder
+require("./routes/routes")(app, io); //imported function sets up routes and io logic;
 
 // Start the server
-app.listen(PORT, function() {
-  console.log("Now listening on port %s! Visit localhost:%s in your browser.", PORT, PORT);
+http.listen(PORT, function() {
+  console.log(`Now listening on port ${PORT}`);
 });
