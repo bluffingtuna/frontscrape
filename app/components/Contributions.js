@@ -35,12 +35,10 @@ class Contributions extends Component {
 		return (
 <div className="card text-center">
   <div className="card-header">
-    Contributions
+    User-Contributed Scrapings
   </div>
   <div className="card-block">
-    <h4 className="card-title">Special title treatment</h4>
-    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" className="btn btn-primary">Go somewhere</a>
+    <p>User-contributed scrapings goes here.</p>
   </div>
 </div>
 		);

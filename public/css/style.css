@@ -17,14 +17,6 @@
     background-color: green; /* Add a dark-grey background on hover */
 }
 
-.right {
-  float: right;
-}
-
-.search {
-  text-align: center;
-}
-
 .listings {
   float: right;
 }
