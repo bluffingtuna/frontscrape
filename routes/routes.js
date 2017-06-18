@@ -1,14 +1,27 @@
-var express = require('express');
-var path = require('path');
+module.exports = function(app, io){
+    app.get('/', (req, res)=>{//root route sends index.html
+        res.sendFile('../public/index.html');
+    });
+    
+    app.get('/login', (req, res)=>{//sends login page
+        res.sendFile('../public/login.html');
+    });
 
-// var apiRoutes = require('./apiRoutes');
+    io.on('connection', socket=>{
+        console.log('socket connected on ' + socket.id);
 
-var router = new express.Router();
+        socket.emit('bundle', { hello: 'world' });
 
-// router.use('/api', apiRoutes);
+        socket.on('send more', ()=>{
+            socket.emit('bundle', {hello: 'world'});
+        });
 
-router.get('*', function(req, res) {
-	res.sendFile(path.join(__dirname, "../public/index.html"));
-});
+        socket.on('data', data=>{
+            console.log(data);
+        });
 
-module.exports = router;
+        socket.on('disconnect', function(){
+            console.log('user disconnected');
+        });
+    });
+}
