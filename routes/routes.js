@@ -1,6 +1,8 @@
+var path = require('path');
+
 module.exports = function(app, io){
-    app.get('/', (req, res)=>{//root route sends index.html
-        res.sendFile('../public/index.html');
+    app.get('*', (req, res)=>{//root route sends index.html
+        res.sendFile(path.join(__dirname, "../public/index.html"));
     });
     
     app.get('/login', (req, res)=>{//sends login page
