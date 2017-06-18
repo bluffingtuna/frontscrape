@@ -12,11 +12,12 @@ var app = express();
 // const http = require('http').Server(app);
 // const io = require('socket.io')(http);
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
 app.use("/", routes);
 
-var db = process.env.MONGODB_URI || "mongodb://localhost/nytreact";
+var db = process.env.MONGODB_URI || "mongodb://localhost/strybo";
 
 // Connect mongoose to our database
 mongoose.connect(db, function(error) {
