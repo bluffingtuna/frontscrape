@@ -1,24 +1,14 @@
-var Benchmark = require("benchmark");
+var express = require('express');
+var path = require('path');
 
-var stuff = [10, 34, 56, 67, 93, 120, 137, 168, 259, 280, 311, 342, 413, 514];
+// var apiRoutes = require('./apiRoutes');
 
-var random_value = stuff[Math.floor(Math.random() * 14)];
+var router = new express.Router();
 
-// Write a for loop that looks at each index
-//  of the array to see if it matches the random value
+// router.use('/api', apiRoutes);
 
-// If it does match the random value display
-//  an alert box with the index of the array and the value
-var startTime = new Date();
-console.time("test")
-for (var i = 0; i < stuff.length; i++) {
-    if (stuff[i] == random_value)
-        console.log(`index: ${i}, value: ${stuff[i]}`)
-}
-console.timeEnd("test")
+router.get('*', function(req, res) {
+res.sendFile(path.join(__dirname, "../public/index.html"));
+});
 
-var endTime = new Date();
-var timediff = endTime - startTime;
-var timediffs = timediff / 1000;
-console.log(timediff);
-console.log(timediffs);
+module.exports = router;
