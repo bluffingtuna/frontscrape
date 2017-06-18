@@ -44,7 +44,7 @@ function topFunction() {
 			<div className="container-fluid">
 				<Navbar />
 				{this.props.children}
-				<button onClick={topFunction} id="myBtn" title="Go to top">Back to Top</button>
+				<button onClick={topFunction} id="myBtn" title="Go Back to Top">Back to Top</button>
 				<Footer />
 			</div>
 		);

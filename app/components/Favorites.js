@@ -39,12 +39,16 @@ class Favorites extends Component {
     Favorites
   </div>
   <div className="card-block">
-<div class="card">
-  <div class="card-block">
-    <h4 className="card-title">Google<a href="www.google.com" className="listings btn btn-danger">Remove Favorite</a></h4>
-    <p className="card-text">www.google.com</p>
+    <h4 className="card-title"><a href="https://www.google.com">Google</a><a href="#" className="listings btn btn-danger" title="Click to Remove">Remove Favorite</a></h4>
+    <p className="card-text">https://www.google.com</p>
   </div>
-</div>
+  <div className="card-block">
+    <h4 className="card-title"><a href="https://www.bing.com">Bing</a><a href="#" className="listings btn btn-danger" title="Click to Remove">Remove Favorite</a></h4>
+    <p className="card-text">https://www.bing.com</p>
+  </div>
+  <div className="card-block">
+    <h4 className="card-title"><a href="https://www.facebook.com">Facebook</a><a href="#" className="listings btn btn-danger" title="Click to Remove">Remove Favorite</a></h4>
+    <p className="card-text">https://www.facebook.com</p>
   </div>
 </div>
 		);

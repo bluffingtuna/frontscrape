@@ -35,12 +35,10 @@ class Total extends Component {
 		return (
 <div className="card text-center">
   <div className="card-header">
-    Total
+    Total Internet Scraped
   </div>
   <div className="card-block">
-    <h4 className="card-title">Special title treatment</h4>
-    <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" className="btn btn-primary">Go somewhere</a>
+    <p>Total Internet scraped goes here.</p>
   </div>
 </div>
 		);

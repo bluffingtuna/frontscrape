@@ -25,10 +25,14 @@ class Query extends Component {
   </div>
   <div className="card-block">
 <div className="form-group row">
-  <div className="col-12">
-    <input className="search form-control" type="search" id="example-search-input"/>
+  <div className="col-2">
+  </div>
+  <div className="col-8">
+    <input className="form-control border-top-0 border-left-0 border-right-0 text-center" type="search" id="example-search-input"/>
     <br/>
-    <button className="btn bg-inverse text-muted" title="Click to Search">Search</button>
+    <a type="button" className="btn bg-inverse text-white" title="Click to Search">Search</a>
+  </div>
+  <div className="col-2">
   </div>
 </div>
   </div>
