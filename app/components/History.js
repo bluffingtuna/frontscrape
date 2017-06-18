@@ -19,9 +19,19 @@ class History extends Component {
 	// }
 	render() {
 		return (
-			<div>
-				<p>History - Testing</p>
-			</div>
+<div className="card">
+  <div className="card-header text-center">
+    History
+  </div>
+  <div className="card-block">
+<div class="card">
+  <div class="card-block">
+    <h4 className="card-title">Google<a href="www.google.com" className="listings btn btn-danger">Erase History</a></h4>
+    <p className="card-text">www.google.com</p>
+  </div>
+</div>
+  </div>
+</div>
 		);
 	}
 }

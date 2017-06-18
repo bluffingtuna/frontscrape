@@ -19,9 +19,20 @@ class Query extends Component {
 	// }
 	render() {
 		return (
-			<div>
-				<p>Query - Testing</p>
-			</div>
+<div className="card text-center">
+  <div className="card-header">
+    Query
+  </div>
+  <div className="card-block">
+<div className="form-group row">
+  <div className="col-12">
+    <input className="search form-control" type="search" id="example-search-input"/>
+    <br/>
+    <button className="btn bg-inverse text-muted" title="Click to Search">Search</button>
+  </div>
+</div>
+  </div>
+</div>
 		);
 	}
 }

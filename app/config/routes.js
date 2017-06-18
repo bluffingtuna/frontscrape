@@ -3,12 +3,12 @@ import { Route, IndexRoute, Router, browserHistory } from 'react-router';
 
 import Main from '../components/Main';
 import Search from "../components/Search";
-import User from "../components/User";
+import Account from "../components/Account";
 
 const routes = (
 	<Router history={browserHistory}>
 		<Route path='/' component={Main}>
-		<Route path="user" component={User} />
+		<Route path="account" component={Account} />
 		<IndexRoute component={Search} />
 		</Route>
 	</Router>
