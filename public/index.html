@@ -19,6 +19,48 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="bundle.js"></script>
     <script type="text/javascript" src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="lib/jquery-2.1.3.min.js"></script>
+    <script src="lib/jquery.xmldom.js"></script>
+    <script src="lib/jquery.mockjax.js"></script>
+    <script src="lib/async.js"></script>
+    <!-- Helpers -->
+    <script src="helpers.js"></script>
+    <!-- START ARTOO IMPORTS -->
+    <script src="src/artoo.js"></script>
+    <script src="src/third_party/emmett.js"></script>
+    <script src="src/third_party/jquery.simulate.js"></script>
+    <script src="src/artoo.beep.js"></script>
+    <script src="src/artoo.settings.js"></script>
+    <script src="src/artoo.helpers.js"></script>
+    <script src="src/artoo.parsers.js"></script>
+    <script src="src/artoo.writers.js"></script>
+    <script src="src/artoo.browser.js"></script>
+    <script src="src/artoo.log.js"></script>
+    <script src="src/artoo.dependencies.js"></script>
+    <script src="src/artoo.countermeasures.js"></script>
+    <script src="src/methods/artoo.methods.ajaxSniffer.js"></script>
+    <script src="src/methods/artoo.methods.ajaxSpider.js"></script>
+    <script src="src/methods/artoo.methods.autoExpand.js"></script>
+    <script src="src/methods/artoo.methods.autoScroll.js"></script>
+<!--     <script src="src/methods/artoo.methods.cookies.js"></script>
+    <script src="src/methods/artoo.methods.save.js"></script> -->
+    <script src="src/methods/artoo.methods.scrape.js"></script>
+    <script type="text/javascript">
+        artoo.on('ready', function() {
+        artoo.ajaxSpider(['https://www.nytimes.com/', 'http://medialab.github.io/artoo/', "https://slickdeals.net/", "https://en.wikipedia.org/wiki/Filmography_of_Donald_Trump", "https://www.bellagio.com/en.html", 'https://www.nytimes.com/', 'http://medialab.github.io/artoo/', "https://slickdeals.net/", "https://en.wikipedia.org/wiki/Filmography_of_Donald_Trump", "https://www.bellagio.com/en.html", 'https://www.nytimes.com/', 'http://medialab.github.io/artoo/'], {
+            scrape: {
+                iterator: 'a',
+                url: {
+                    sel: 'a',
+                    attr: 'href'
+                }
+            }
+        }, function(data) {
+            console.log("Retrieved Data", data)
+        });
+    });
+    </script>
+    <script src="src/artoo.init.js"></script>
 </body>
 
 </html>
