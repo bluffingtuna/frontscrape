@@ -1,11 +1,13 @@
 import React from "react";
 
 const Footer = () => (
+<div className="container-fluid">
 	<footer className="footer bg-primary">
       	<div className="container-fluid">
-        	<span>&copy; 2017 Strybo</span>
+        	<div>&copy; 2017 Strygle&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">About</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Contact Us</a></div>
       	</div>
     </footer>
+</div>
 );
 
 export default Footer;

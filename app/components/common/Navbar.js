@@ -4,7 +4,7 @@ import { Link } from "react-router";
 class Navbar extends Component {
     render() {
         return (
-<div>
+<div className="container-fluid">
 
   <div className="modal fade" id="signUpModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div className="modal-dialog" role="document">
@@ -72,7 +72,7 @@ class Navbar extends Component {
     </button>
       <a className="navbar-brand" href="/">
       <img src="/images/S-Official.jpg" width="32" height="32" className="d-inline-block align-top" alt="S"/>
-      &nbsp;Strybo
+      &nbsp;Strygle
     </a>
 
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
