@@ -16,11 +16,23 @@ class Navbar extends Component {
           </button>
         </div>
         <div className="modal-body">
-          ...
-        </div>
-        <div className="modal-footer">
-          <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" className="btn btn-primary">Save changes</button>
+<form>
+  <div className="form-group">
+    <label htmlFor="exampleInputEmail1">Email address</label>
+    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please enter email address!" required/>
+  </div>
+  <div className="form-group">
+    <label htmlFor="exampleInputPassword1">Password</label>
+    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Please enter password!" required/>
+  </div>
+  <div className="form-group">
+    <label htmlFor="exampleInputPassword2">Confirm Password (not working yet)</label>
+    <input type="password" className="form-control" id="exampleInputPassword2" placeholder="Please confirm password (not working yet)!" required/>
+  </div>
+  <div className="text-center">
+    <button type="submit" className="btn btn-primary">Submit</button>
+  </div>
+</form>
         </div>
       </div>
     </div>
@@ -36,11 +48,19 @@ class Navbar extends Component {
           </button>
         </div>
         <div className="modal-body">
-          ...
-        </div>
-        <div className="modal-footer">
-          <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" className="btn btn-primary">Save changes</button>
+<form>
+  <div className="form-group">
+    <label htmlFor="exampleInputEmail1">Email address</label>
+    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please enter email address!" required/>
+  </div>
+  <div className="form-group">
+    <label htmlFor="exampleInputPassword1">Password</label>
+    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Please enter password!" required/>
+  </div>
+  <div className="text-center">
+    <button type="submit" className="btn btn-primary">Submit</button>
+  </div>
+</form>
         </div>
       </div>
     </div>
