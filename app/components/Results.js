@@ -38,18 +38,26 @@ class Results extends Component {
   <div className="card-header text-center">
     Results
   </div>
-  <div className="card-block">
-    <h4 className="card-title"><a href="https://www.google.com">Google</a><a href="#" className="listings btn btn-primary">Save Favorite</a></h4>
-    <p className="card-text">https://www.google.com</p>
+<div className="form-group row">
+  <div className="col-1">
   </div>
-  <div className="card-block">
-    <h4 className="card-title"><a href="https://www.bing.com">Bing</a><a href="#" className="listings btn btn-primary">Save Favorite</a></h4>
-    <p className="card-text">https://www.bing.com</p>
+  <div className="col-10">
+	  <div className="card-block">
+	    <h4 className="card-title"><a href="https://www.google.com" target="_blank">Google</a><a href="#" className="listings btn btn-primary">Save Favorite</a></h4>
+	    <p className="card-text">https://www.google.com</p>
+	  </div>
+	  <div className="card-block">
+	    <h4 className="card-title"><a href="https://www.bing.com" target="_blank">Bing</a><a href="#" className="listings btn btn-primary">Save Favorite</a></h4>
+	    <p className="card-text">https://www.bing.com</p>
+	  </div>
+	  <div className="card-block">
+	    <h4 className="card-title"><a href="https://www.facebook.com" target="_blank">Facebook</a><a href="#" className="listings btn btn-primary">Save Favorite</a></h4>
+	    <p className="card-text">https://www.facebook.com</p>
+	  </div>
   </div>
-  <div className="card-block">
-    <h4 className="card-title"><a href="https://www.facebook.com">Facebook</a><a href="#" className="listings btn btn-primary">Save Favorite</a></h4>
-    <p className="card-text">https://www.facebook.com</p>
+  <div className="col-1">
   </div>
+</div>
 </div>
 		);
 	}
