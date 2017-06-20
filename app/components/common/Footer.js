@@ -1,11 +1,13 @@
 import React from "react";
 
 const Footer = () => (
-	<footer className="footer bg-primary">
-      	<div className="container-fluid">
-        	<span>&copy; 2017 Strybo</span>
-      	</div>
-    </footer>
+	<div className="container-fluid">
+		<footer className="footer bg-primary">
+	      	<div className="container-fluid">
+	        	<div>&copy; 2017 Strygle (John, Jake, Max)</div>
+	      	</div>
+	    </footer>
+	</div>
 );
 
 export default Footer;
@@ -17,3 +19,5 @@ export default Footer;
   //       &nbsp;&nbsp; Proudly built using React.js
   //   </p>
   // </footer>
+
+// &nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">About</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Contact Us</a>

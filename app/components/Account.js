@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import History from './History';
-import Favorites from './Favorites';
 import Contributions from './Contributions';
 
 class Account extends Component {
@@ -27,10 +25,6 @@ class Account extends Component {
 	render() {
 		return (
 			<div className="container-fluid">
-				<br/>
-				<History />
-				<br/>
-				<Favorites />
 				<br/>
 				<Contributions />
 				<br/>

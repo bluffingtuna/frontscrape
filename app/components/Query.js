@@ -1,42 +1,57 @@
 import React, { Component } from 'react';
 
 class Query extends Component {
-	// constructor() {
-	// 	super();
-	// 	this.state = {
-	// 		topic: '',
-	// 		startYear: '',
-	// 		endYear: ''
-	// 	};
-	// 	this.handleInputChange = this.handleInputChange.bind(this);
-	// 	this.handleButtonClick = this.handleButtonClick.bind(this);
-	// }
-	// handleInputChange(event) {
-	// 	this.setState({ [event.target.name]: event.target.value });
-	// }
-	// handleButtonClick() {
-	// 	this.props.setParent(this.state.topic, this.state.startYear, this.state.endYear);
-	// }
+	constructor() {
+		super();
+		this.state = {
+			query: ''
+		};
+		this.handleInputChange = this.handleInputChange.bind(this);
+		this.handleButtonClick = this.handleButtonClick.bind(this);
+	}
+	handleInputChange(event) {
+		this.setState({ [event.target.name]: event.target.value });
+	}
+	handleButtonClick() {
+		this.props.setParent(this.state.query);
+	}
 	render() {
 		return (
-<div className="card text-center">
-  <div className="card-header">
-    Query
-  </div>
-  <div className="card-block">
-<div className="form-group row">
-  <div className="col-2">
-  </div>
-  <div className="col-8">
-    <input className="form-control border-top-0 border-left-0 border-right-0 text-center" type="search" id="example-search-input"/>
-    <br/>
-    <a type="button" className="btn bg-inverse text-white" title="Click to Search">Search</a>
-  </div>
-  <div className="col-2">
-  </div>
-</div>
-  </div>
-</div>
+			<div className="container-fluid">
+				<div className="card text-center">
+				  <div className="card-header">
+				    Query
+				  </div>
+				  <div className="card-block">
+					<div className="form-group row">
+					  <div className="col-2">
+					  </div>
+					  <div className="col-8">
+					    <input
+						    className="form-control border-top-0 border-left-0 border-right-0 text-center"
+						    type="search"
+						    id="example-search-input"
+						    placeholder="Please enter a search query!"
+						    name="query"
+						    value={this.state.query}
+						    onChange={this.handleInputChange}
+					    />
+					    <br/>
+					    <a
+					    	type="button"
+					    	className="btn bg-inverse text-white"
+					    	title="Click to Search"
+					    	onClick={this.handleButtonClick}
+					    >
+					    	Search
+					    </a>
+					  </div>
+					  <div className="col-2">
+					  </div>
+					</div>
+				  </div>
+				</div>
+			</div>
 		);
 	}
 }
@@ -88,3 +103,7 @@ export default Query;
 				// 		</div>
 				//   	</div>
 				// </div>
+
+	    // <br/>
+	    // <br/>
+	    // <p>FOR TESTING: {this.state.query}</p>

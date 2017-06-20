@@ -33,14 +33,14 @@ class Contributions extends Component {
 	// }
 	render() {
 		return (
-<div className="card text-center">
-  <div className="card-header">
-    User-Contributed Scrapings
-  </div>
-  <div className="card-block">
-    <p>User-contributed scrapings goes here.</p>
-  </div>
-</div>
+			<div className="card text-center">
+			  <div className="card-header">
+			    User-Contributed Scrapings
+			  </div>
+			  <div className="card-block">
+			    <p>User-contributed scrapings go here.</p>
+			  </div>
+			</div>
 		);
 	}
 }
