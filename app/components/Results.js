@@ -15,10 +15,10 @@ class Results extends Component {
 	componentWillReceiveProps(nextProps) {
 		// console.log('TAG');
 		// this.getArticles();
-		API.getResults(nextProps.query.then((res) => {
+		API.getResults(nextProps.query).then((res) => {
 			// console.log(res.data.response.docs);
 			this.setState({results: res.data.response.docs});
-		}));
+		});
 	}
 	// getSaved() {
 	// 	this.props.getSaved();
