@@ -8,8 +8,8 @@ import Account from "../components/Account";
 const routes = (
 	<Router history={browserHistory}>
 		<Route path='/' component={Main}>
-		<Route path="account" component={Account} />
 		<IndexRoute component={Search} />
+		<Route path="account" component={Account} />
 		</Route>
 	</Router>
 );

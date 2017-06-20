@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import Query from './Query';
-import Results from './Results';
 import Total from './Total';
 
 class Search extends Component {
@@ -27,10 +25,6 @@ class Search extends Component {
 	render() {
 		return (
 			<div className="container-fluid">
-				<br/>
-				<Query />
-				<br/>
-				<Results />
 				<br/>
 				<Total />
 				<br/>

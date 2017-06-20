@@ -38,7 +38,7 @@ class Contributions extends Component {
     User-Contributed Scrapings
   </div>
   <div className="card-block">
-    <p>User-contributed scrapings goes here.</p>
+    <p>User-contributed scrapings go here.</p>
   </div>
 </div>
 		);

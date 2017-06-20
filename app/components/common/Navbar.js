@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { Link } from "react-router";
+import Auth from '../../Auth';
 
 class Navbar extends Component {
     render() {
@@ -79,7 +80,7 @@ class Navbar extends Component {
       <ul className="navbar-nav ml-auto">
         <br/>
         <li className="nav-item">
-          <a type="button" className="nav-link btn bg-inverse text-muted" title="Click to Sign Up" data-toggle="modal" data-target="#signUpModal">Sign Up</a>
+          <a type="button" className="nav-link btn bg-inverse text-muted" title="Click to Sign Up"data-toggle="modal" data-target="#signUpModal">Sign Up</a>
         </li>
         <li className="nav-item">
           <a type="button" className="nav-link btn bg-inverse text-muted" title="Click to View Account" href="/account">Account</a>
@@ -123,3 +124,5 @@ export default Navbar;
       //     <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
       //   </li>
       // </ul>
+
+      // Auth.login();
