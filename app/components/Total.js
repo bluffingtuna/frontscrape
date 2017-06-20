@@ -33,14 +33,14 @@ class Total extends Component {
 	// }
 	render() {
 		return (
-<div className="card text-center">
-  <div className="card-header">
-    Total Internet Scraped
-  </div>
-  <div className="card-block">
-    <p>Total Internet scraped goes here.</p>
-  </div>
-</div>
+			<div className="card text-center">
+			  <div className="card-header">
+			    Total Internet Scraped
+			  </div>
+			  <div className="card-block">
+			    <p>Total Internet scraped goes here.</p>
+			  </div>
+			</div>
 		);
 	}
 }

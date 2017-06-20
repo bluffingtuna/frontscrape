@@ -1,13 +1,13 @@
 import React from "react";
 
 const Footer = () => (
-<div className="container-fluid">
-	<footer className="footer bg-primary">
-      	<div className="container-fluid">
-        	<div>&copy; 2017 Strygle (John, Jake, Max)</div>
-      	</div>
-    </footer>
-</div>
+	<div className="container-fluid">
+		<footer className="footer bg-primary">
+	      	<div className="container-fluid">
+	        	<div>&copy; 2017 Strygle (John, Jake, Max)</div>
+	      	</div>
+	    </footer>
+	</div>
 );
 
 export default Footer;
