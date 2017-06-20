@@ -19,23 +19,25 @@ class Query extends Component {
 	// }
 	render() {
 		return (
-<div className="card text-center">
-  <div className="card-header">
-    Query
-  </div>
-  <div className="card-block">
-<div className="form-group row">
-  <div className="col-2">
-  </div>
-  <div className="col-8">
-    <input className="form-control border-top-0 border-left-0 border-right-0 text-center" type="search" id="example-search-input" placeholder="Please enter a search query!"/>
-    <br/>
-    <a type="button" className="btn bg-inverse text-white" title="Click to Search">Search</a>
-  </div>
-  <div className="col-2">
-  </div>
-</div>
-  </div>
+<div className="container-fluid">
+	<div className="card text-center">
+	  <div className="card-header">
+	    Query
+	  </div>
+	  <div className="card-block">
+	<div className="form-group row">
+	  <div className="col-2">
+	  </div>
+	  <div className="col-8">
+	    <input className="form-control border-top-0 border-left-0 border-right-0 text-center" type="search" id="example-search-input" placeholder="Please enter a search query!"/>
+	    <br/>
+	    <a type="button" className="btn bg-inverse text-white" title="Click to Search">Search</a>
+	  </div>
+	  <div className="col-2">
+	  </div>
+	</div>
+	  </div>
+	</div>
 </div>
 		);
 	}
