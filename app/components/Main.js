@@ -22,17 +22,36 @@ class Main extends Component {
 		});
 	}
 	render() {
-		return (
-			<div className="container-fluid">
-				<Navbar />
-				<br/>
-				<Query setParent={this.setParent}/>
-				<br/>
-				<Results query={this.state.query}/>
-				{this.props.children}
-				<Footer />
-			</div>
-		);
+		if (!this.state.query.length) {
+			return (
+				<div className="site d-flex flex-column container-fluid">
+					<Navbar />
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<div className="main flex-grow container-fluid">
+						<Query setParent={this.setParent}/>
+					</div>
+					<Footer />
+				</div>
+			);
+		} else if (this.state.query.length) {
+			return (
+				<div className="site d-flex flex-column container-fluid">
+					<Navbar />
+					<br/>
+					<div className="main flex-grow container-fluid">
+						<Query setParent={this.setParent}/>
+						<br/>
+						<Results query={this.state.query}/>
+						{this.props.children}
+					</div>
+					<Footer />
+				</div>
+			);
+		}
 	}
 }
 
@@ -56,3 +75,6 @@ export default Main;
 // }
 
 // <button onClick={topFunction} id="myBtn" title="Go Back to Top">Back to Top</button>
+
+					// <br/>
+					// <Results query={this.state.query}/>
