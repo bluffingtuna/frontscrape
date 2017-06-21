@@ -2,9 +2,17 @@ a, button {
   cursor: pointer;
 }
 
+#errorMessage {
+  text-align: center;
+}
+
 /*.listings {
   float: right;
 }*/
+
+#resultTitle, #resultURL {
+  overflow-wrap: break-word;
+}
 
 .footer {
   text-align: center;
