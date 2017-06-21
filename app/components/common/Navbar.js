@@ -132,7 +132,9 @@ export default Navbar;
         // </li>
 
                   // <li className="nav-item">
-                  //   <a type="button" className="nav-link btn bg-warning text-white" title="Account" href="/account">Account</a>
+                  //   <Link type="button" className="nav-link btn bg-warning text-white" title="Account (temporary button here)" to="/account" onClick={() => this.props.setParent('')}>A (temp)</Link>
                   // </li>
 
                   // &nbsp;
+
+ // onClick={() => this.props.setParent('')}

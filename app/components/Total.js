@@ -2,23 +2,29 @@ import React, { Component } from 'react';
 import API from '../utils/API';
 
 class Total extends Component {
-	// constructor() {
-	// 	super();
-	// 	this.state = {
-	// 		articles: []
-	// 	}
+	constructor() {
+		super();
+		this.state = {
+			scrapeTotal: 0
+		}
 	// 	// this.getArticles = this.getArticles.bind(this);
 	// 	this.getSaved = this.getSaved.bind(this);
 	// 	this.renderArticles = this.renderArticles.bind(this);
 	// }
-	// componentWillReceiveProps(nextProps) {
-	// 	// console.log('TAG');
-	// 	// this.getArticles();
-	// 	API.getArticles(nextProps.topic, nextProps.startYear, nextProps.endYear).then((res) => {
-	// 		// console.log(res.data.response.docs);
-	// 		this.setState({articles: res.data.response.docs});
-	// 	});
-	// }
+	}
+	componentWillMount() {
+		// API.getScrapeTotal().then((res) => {
+		// 	this.setState({scrapeTotal: res});
+		// });
+	}
+	componentWillReceiveProps() {
+		// console.log('TAG');
+		// this.getArticles();
+
+		// API.getScrapeTotal().then((res) => {
+		// 	this.setState({scrapeTotal: res});
+		// });
+	}
 	// getSaved() {
 	// 	this.props.getSaved();
 	// }
@@ -33,13 +39,15 @@ class Total extends Component {
 	// }
 	render() {
 		return (
-			<div className="card text-center">
-			  <div className="card-header">
-			    Total Scrape Statistics
-			  </div>
-			  <div className="card-block">
-			    <p>Live web-socket total scrape stats feed</p>
-			  </div>
+			<div className="container-fluid scrapeTotal col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+				<div className="card text-center">
+				  <div className="card-header">
+				    Total Pages Scraped 
+				  </div>
+				  <div className="card-block">
+				    <h1>{this.state.scrapeTotal}</h1>
+				  </div>
+				</div>
 			</div>
 		);
 	}
