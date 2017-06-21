@@ -35,10 +35,10 @@ class Contributions extends Component {
 		return (
 			<div className="card text-center">
 			  <div className="card-header">
-			    User-Contributed Scrapings
+			    Individual Scrape Statistics
 			  </div>
 			  <div className="card-block">
-			    <p>User-contributed scrapings go here.</p>
+			    <p>Live web-socket individual scrape stats feed</p>
 			  </div>
 			</div>
 		);
