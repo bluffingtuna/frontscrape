@@ -8,7 +8,7 @@ class Results extends Component {
 		this.state = {
 			resultsPerPage: 10,
 			results: -1,
-			pages: 0,
+			pages: 1,
 			currentPage: 1
 		}
 		// this.getArticles = this.getArticles.bind(this);
@@ -147,7 +147,7 @@ class Results extends Component {
 
 		var pages = Math.ceil(dummyData.length / this.state.resultsPerPage);
 
-		this.setState({results: dummyData, pages: pages});
+		this.setState({results: dummyData, pages: pages, currentPage: 1});
 	}
 	// getSaved() {
 	// 	this.props.getSaved();
