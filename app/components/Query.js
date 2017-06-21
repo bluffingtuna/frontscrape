@@ -16,6 +16,13 @@ class Query extends Component {
 		this.props.setParent(this.state.query);
 	}
 	render() {
+
+		function searchEnter(event) {
+			if (event.keyCode == 13) {
+				document.getElementById('submit').click();
+			}
+		}
+
 		return (
 			<div className="container-fluid">
 				<div className="card text-center">
@@ -35,10 +42,12 @@ class Query extends Component {
 						    name="query"
 						    value={this.state.query}
 						    onChange={this.handleInputChange}
+						    onKeyDown={searchEnter}  
 					    />
 					    <br/>
 					    <a
 					    	type="button"
+					    	id="submit"
 					    	className="btn bg-inverse text-white"
 					    	title="Click to Search"
 					    	onClick={this.handleButtonClick}
