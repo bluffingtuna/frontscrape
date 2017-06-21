@@ -71,10 +71,10 @@ class Navbar extends Component {
               <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
-              <a className="navbar-brand" href="/">
+              <Link className="navbar-brand" to="/" onClick={() => this.props.setParent('')}>
                 <img src="/images/redesigned_MI.jpg" id="mainLogo" className="d-inline-block align-top" alt="MI"/>
                 &nbsp;Moose Industries
-              </a>
+              </Link>
 
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav ml-auto">
@@ -132,7 +132,7 @@ export default Navbar;
         // </li>
 
                   // <li className="nav-item">
-                  //   <a type="button" className="nav-link btn bg-warning text-white" title="Account" href="/account">Account</a>
+                  //   <Link type="button" className="nav-link btn bg-warning text-white" title="Account (temporary button here)" to="/account" onClick={() => this.props.setParent('')}>A (temp)</Link>
                   // </li>
 
                   // &nbsp;

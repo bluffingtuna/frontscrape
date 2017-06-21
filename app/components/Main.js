@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Navbar from "./common/Navbar";
 import Query from './Query';
+import Stats from './Stats';
 import Results from './Results';
 import Footer from "./common/Footer";
 
@@ -25,29 +26,28 @@ class Main extends Component {
 		if (!this.state.query.length) {
 			return (
 				<div className="site d-flex flex-column container-fluid">
-					<Navbar />
-					<br/>
-					<br/>
-					<br/>
-					<br/>
+					<Navbar setParent={this.setParent}/>
 					<br/>
 					<div className="main flex-grow container-fluid">
 						<Query setParent={this.setParent}/>
+						<br/>
+						<Stats />
 					</div>
+					<br/>
 					<Footer />
 				</div>
 			);
 		} else if (this.state.query.length) {
 			return (
 				<div className="site d-flex flex-column container-fluid">
-					<Navbar />
+					<Navbar setParent={this.setParent}/>
 					<br/>
 					<div className="main flex-grow container-fluid">
 						<Query setParent={this.setParent}/>
 						<br/>
 						<Results query={this.state.query}/>
-						{this.props.children}
 					</div>
+					<br/>
 					<Footer />
 				</div>
 			);
@@ -78,3 +78,5 @@ export default Main;
 
 					// <br/>
 					// <Results query={this.state.query}/>
+
+						// {this.props.children}

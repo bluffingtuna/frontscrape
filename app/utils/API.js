@@ -2,10 +2,15 @@ import axios from 'axios';
 
 const API = {
 	getResults: (query) => {
-		queryURLBase = "";
-		queryURL = queryURLBase + query;
+		var queryURLBase = '';
+		var queryURL = queryURLBase + query;
+		return axios.get(queryURL);
+	},
+	getScrapeTotal: () => {
+		var queryURL = '';
 		return axios.get(queryURL);
 	}
+
 	// getArticles: (topic, startYear, endYear) => {
 	// 	var authKey = "72703b36264e4b7888a6e85eb34910a5";
 	// 	var queryURLBase = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + authKey + "&q=";
@@ -33,6 +38,6 @@ const API = {
 	// 	const { _id, favorited } = article;
 	// 	return axios.patch(`/api/saved/${_id}`, { favorited });
 	// }
-};
+}
 
 export default API;
