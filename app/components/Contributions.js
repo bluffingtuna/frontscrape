@@ -12,16 +12,16 @@ class Contributions extends Component {
 	// 	this.renderArticles = this.renderArticles.bind(this);
 	}
 	componentWillMount() {
-		// API.getScrapeTotal().then((res) => {
-		// 	this.setState({scrapeTotal: res});
+		// API.getScrapeUser(userId).then((res) => {
+		// 	this.setState({scrapeUser: res});
 		// });
 	}
 	componentWillReceiveProps() {
 		// console.log('TAG');
 		// this.getArticles();
 
-		// API.getScrapeTotal().then((res) => {
-		// 	this.setState({scrapeTotal: res});
+		// API.getScrapeUser(userId).then((res) => {
+		// 	this.setState({scrapeUser: res});
 		// });
 	}
 	// getSaved() {

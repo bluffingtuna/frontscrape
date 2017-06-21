@@ -9,8 +9,12 @@ const API = {
 	getScrapeTotal: () => {
 		var queryURL = '';
 		return axios.get(queryURL);
+	},
+	getScrapeUser: (userId) => {
+		var queryURLBase = '';
+		var queryURL = queryURLBase + userId;
+		return axios.get(queryURL);
 	}
-
 	// getArticles: (topic, startYear, endYear) => {
 	// 	var authKey = "72703b36264e4b7888a6e85eb34910a5";
 	// 	var queryURLBase = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + authKey + "&q=";

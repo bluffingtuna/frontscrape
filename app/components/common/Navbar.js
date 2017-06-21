@@ -71,10 +71,10 @@ class Navbar extends Component {
               <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
-              <Link className="navbar-brand" to="/" onClick={() => this.props.setParent('')}>
+              <a className="navbar-brand" href="/">
                 <img src="/images/redesigned_MI.jpg" id="mainLogo" className="d-inline-block align-top" alt="MI"/>
                 &nbsp;Moose Industries
-              </Link>
+              </a>
 
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav ml-auto">
@@ -136,3 +136,5 @@ export default Navbar;
                   // </li>
 
                   // &nbsp;
+
+ // onClick={() => this.props.setParent('')}
