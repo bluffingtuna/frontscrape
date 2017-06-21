@@ -2,8 +2,17 @@ import axios from 'axios';
 
 const API = {
 	getResults: (query) => {
-		queryURLBase = "";
-		queryURL = queryURLBase + query;
+		var queryURLBase = '';
+		var queryURL = queryURLBase + query;
+		return axios.get(queryURL);
+	},
+	getScrapeTotal: () => {
+		var queryURL = '';
+		return axios.get(queryURL);
+	},
+	getScrapeUser: (userId) => {
+		var queryURLBase = '';
+		var queryURL = queryURLBase + userId;
 		return axios.get(queryURL);
 	}
 	// getArticles: (topic, startYear, endYear) => {
@@ -33,6 +42,6 @@ const API = {
 	// 	const { _id, favorited } = article;
 	// 	return axios.patch(`/api/saved/${_id}`, { favorited });
 	// }
-};
+}
 
 export default API;
