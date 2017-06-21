@@ -1,6 +1,8 @@
 // Require our dependecies
 var express = require("express");
 var mongoose = require("mongoose");
+const Page = require('./models/Page.js')(mongoose);//import function which takes mongoose as arg, returns Page model
+
 var bodyParser = require("body-parser");
 var PORT = process.env.PORT || 3000;//port from environment variables, default to 3000
 mongoose.Promise = Promise;//changes mongoose asynchronous protocol from bluebird to native promises
@@ -40,7 +42,7 @@ app.use(function(req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public")); //serves public folder
-require("./routes/routes")(app, io); //imported function sets up routes and io logic;
+require("./routes/routes")(app, io, Page); //imported function sets up routes and io logic;
 
 // Start the server
 var server = https.createServer(https_options, app)
