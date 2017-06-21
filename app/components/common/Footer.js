@@ -1,12 +1,12 @@
 import React from "react";
 
 const Footer = () => (
-	<div className="container-fluid">
-		<footer className="footer bg-primary">
+	<div className="footer container-fluid">
+		<div className="bg-primary">
 	      	<div className="container-fluid">
-	        	<div>&copy; 2017 Strygle (John, Jake, Max)</div>
+	        	<div>&copy; 2017 Moose Industries (John, Jake, Max)</div>
 	      	</div>
-	    </footer>
+	    </div>
 	</div>
 );
 

@@ -5,99 +5,95 @@ import { Link } from "react-router";
 class Navbar extends Component {
     render() {
         return (
-<div className="container-fluid">
+          <div className="navbar container-fluid">
 
-  <div className="modal fade" id="signUpModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div className="modal-dialog" role="document">
-      <div className="modal-content">
-        <div className="modal-header">
-          <h5 className="modal-title" id="exampleModalLabel">Sign Up</h5>
-          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div className="modal-body">
-          <form>
-            <div className="form-group">
-              <label htmlFor="exampleInputEmail1">Email address</label>
-              <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please enter email address!" required/>
+            <div className="modal fade" id="signUpModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">Sign Up</h5>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                    <form>
+                      <div className="form-group">
+                        <label htmlFor="exampleInputEmail1">Email address</label>
+                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please enter email address!" required/>
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="exampleInputPassword1">Password</label>
+                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Please enter password!" required/>
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="exampleInputPassword2">Confirm Password (not working yet)</label>
+                        <input type="password" className="form-control" id="exampleInputPassword2" placeholder="Please confirm password (not working yet)!" required/>
+                      </div>
+                      <div className="text-center">
+                        <button type="submit" className="btn btn-faded">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="form-group">
-              <label htmlFor="exampleInputPassword1">Password</label>
-              <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Please enter password!" required/>
-            </div>
-            <div className="form-group">
-              <label htmlFor="exampleInputPassword2">Confirm Password (not working yet)</label>
-              <input type="password" className="form-control" id="exampleInputPassword2" placeholder="Please confirm password (not working yet)!" required/>
-            </div>
-            <div className="text-center">
-              <button type="submit" className="btn btn-faded">Submit</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div className="modal fade" id="logInModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div className="modal-dialog" role="document">
-      <div className="modal-content">
-        <div className="modal-header">
-          <h5 className="modal-title" id="exampleModalLabel">Log In</h5>
-          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div className="modal-body">
-          <form>
-            <div className="form-group">
-              <label htmlFor="exampleInputEmail1">Email address</label>
-              <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please enter email address!" required/>
+            <div className="modal fade" id="logInModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">Log In</h5>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                    <form>
+                      <div className="form-group">
+                        <label htmlFor="exampleInputEmail1">Email address</label>
+                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please enter email address!" required/>
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="exampleInputPassword1">Password</label>
+                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Please enter password!" required/>
+                      </div>
+                      <div className="text-center">
+                        <button type="submit" className="btn btn-faded">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="form-group">
-              <label htmlFor="exampleInputPassword1">Password</label>
-              <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Please enter password!" required/>
-            </div>
-            <div className="text-center">
-              <button type="submit" className="btn btn-faded">Submit</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <nav className="navbar navbar-toggleable-md navbar-light bg-primary">
-    <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <a className="navbar-brand" href="/">
-      <img src="/images/S-Official.jpg" width="32" height="32" className="d-inline-block align-top" alt="S"/>
-      &nbsp;Strygle
-    </a>
+            <nav className="navbar navbar-toggleable-md navbar-light bg-primary">
+              <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <a className="navbar-brand" href="/">
+                <img src="/images/redesigned_MI.jpg" id="mainLogo" className="d-inline-block align-top" alt="MI"/>
+                &nbsp;Moose Industries
+              </a>
 
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav ml-auto">
-        <br/>
-        <li className="nav-item">
-          <a type="button" className="nav-link btn bg-warning text-white" title="Account (temporary)" href="/account">Account (temporary)</a>
-        </li>
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav ml-auto">
+                  <br/>
 
-        &nbsp;
-        <li className="nav-item">
-          <a type="button" className="nav-link btn bg-success text-white" title="Click to Sign Up" data-toggle="modal" data-target="#signUpModal">Sign Up</a>
-        </li>
+                  <li className="nav-item">
+                    <a type="button" className="nav-link btn bg-success text-white" title="Click to Sign Up" data-toggle="modal" data-target="#signUpModal">Sign Up</a>
+                  </li>
 
-        &nbsp;
-        <li className="nav-item">
-          <a type="button" className="nav-link btn bg-info text-white" title="Click to Log In" data-toggle="modal" data-target="#logInModal">Log In</a>
-        </li>
+                  &nbsp;
+                  <li className="nav-item">
+                    <a type="button" className="nav-link btn bg-info text-white" title="Click to Log In" data-toggle="modal" data-target="#logInModal">Log In</a>
+                  </li>
 
-        &nbsp;
-      </ul>
-    </div>
-  </nav>
-</div>
+                  &nbsp;
+                </ul>
+              </div>
+            </nav>
+          </div>
         );
     }
 }
@@ -134,3 +130,9 @@ export default Navbar;
         // <li className="nav-item">
         //   <a type="button" className="nav-link btn bg-info text-white" title="Click to Log Out" href="/logout">Log Out</a>
         // </li>
+
+                  // <li className="nav-item">
+                  //   <a type="button" className="nav-link btn bg-warning text-white" title="Account" href="/account">Account</a>
+                  // </li>
+
+                  // &nbsp;
