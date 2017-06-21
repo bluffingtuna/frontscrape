@@ -41,6 +41,14 @@ a, button {
   float: right;
 }*/
 
+.scrapeTotal {
+  float: left;
+}
+
+.scrapeIndividual {
+  float: right;
+}
+
 #resultTitle, #resultURL {
   overflow-wrap: break-word;
 }

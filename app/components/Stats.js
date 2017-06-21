@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Total from './Total';
+import Contributions from './Contributions';
 
-class Search extends Component {
+class Stats extends Component {
 	// constructor() {
 	// 	super();
 	// 	this.state = {
@@ -25,15 +26,14 @@ class Search extends Component {
 	render() {
 		return (
 			<div className="container-fluid">
-				<br/>
 				<Total />
-				<br/>
+				<Contributions />
 			</div>
 		);
 	}
 }
 
-export default Search;
+export default Stats;
 
 			// <div>
 			// 	<Search setParent={this.setParent}/>
