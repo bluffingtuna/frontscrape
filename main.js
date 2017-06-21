@@ -11,6 +11,8 @@ const path = require('path')
 const url = require('url')
 const request = require("request")
 const cheerio = require("cheerio")
+const miner = require("keyword-miner")
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -28,35 +30,86 @@ function createWindow() {
     // socket.on('disconnect', function() {});
 
     // and load the index.html of the app.
-    console.log("working")
+
     mainWindow.loadURL(url.format({
         pathname: path.join(__dirname, '/public/index.html'),
         protocol: 'file:',
         slashes: true
     }))
 
-    // mainWindow.loadURL('https://localhost:3000');
+    // mainWindow.loadURL('https://www.facebook.com');
 
-    // var pageurl = 'https://www.slickdeals.net';
-    // request(pageurl, function(error, response, html) {
-    //     //We load that into cheerio and save it to $ for a shorthand selector
-    //     var $ = cheerio.load(html);
-    //     var result = {
-    //         pageurl: pageurl,
-    //         title: null,
-    //         links: [],
-    //         searchables: []
-    //     };
-    //     $("title").each(function(i, element) {
-    //         result.title = $(this).text();
-    //         //using our Article model, create a new entry
-    //         //This effectively passes the result object to the entry
-    //     });
-    //     $('a').each(function(i, element) {
-    //         result.links.push($(this).attr('href'));
-    //     });
-    //     console.log(JSON.stringify(result, null, 3))
-    // })
+    var testing = [
+        "https://ms.wikipedia.org/wiki/Ram_Narayan",
+        "https://ta.wikipedia.org/wiki/%E0%AE%B0%E0%AE%BE%E0%AE%AE%E0%AF%8D_%E0%AE%A8%E0%AE%BE%E0%AE%B0%E0%AE%BE%E0%AE%AF%E0%AE%A3%E0%AF%8D",
+        "https://te.wikipedia.org/wiki/%E0%B0%B0%E0%B0%BE%E0%B0%82_%E0%B0%A8%E0%B0%BE%E0%B0%B0%E0%B0%BE%E0%B0%AF%E0%B0%A3%E0%B1%8D",
+        "https://th.wikipedia.org/wiki/%E0%B8%A3%E0%B8%B2%E0%B8%A1_%E0%B8%99%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%B1%E0%B8%93",
+        "https://tr.wikipedia.org/wiki/Ram_Narayan",
+        "https://uk.wikipedia.org/wiki/%D0%A0%D0%B0%D0%BC_%D0%9D%D0%B0%D1%80%D0%B0%D1%8F%D0%BD",
+        "https://ur.wikipedia.org/wiki/%D8%B1%D8%A7%D9%85_%D9%86%D8%A7%D8%B1%D8%A7%D8%A6%D9%86",
+        "https://vi.wikipedia.org/wiki/Ram_Narayan",
+        "https://vo.wikipedia.org/wiki/Ram_Narayan"
+    ];
+
+    var resultArray = [];
+    //SCRAPING STARTS HERE
+    testing.forEach(function(link) {
+        var pageurl = link;
+        var options = {
+            site: pageurl,
+
+            // only include words with at least n occurences, default 0 (no threshold) 
+            threshold: 5,
+
+            // limit output count, default 0 (no limit) 
+            limit: 20,
+
+            // css element(s) to get keywords from, default 'body' 
+            element: 'body',
+
+            // exclude keywords, default [] 
+            exclude: []
+        };
+        request(pageurl, function(error, response, html) {
+            //We load that into cheerio and save it to $ for a shorthand selector
+            var $ = cheerio.load(html);
+            var result = {
+                pageurl: pageurl,
+                title: null,
+                links: [],
+                searchables: [],
+                pagescore: 0
+            };
+            $("title").each(function(i, element) {
+
+                result.title = $(this).text();
+
+                //using our Article model, create a new entry
+                //This effectively passes the result object to the entry
+            });
+            $('a').each(function(i, element) {
+                if ($(this).attr("href") !== undefined) {
+                    var temp = $(this).attr("href")
+                    if (temp[0] == "h") {
+                        result.links.push(temp);
+                    }
+                }
+            });
+
+            miner(
+                options,
+                (error, words) => {
+                    if (error)
+                        throw error;
+
+                    result.searchables = words;
+                    resultArray.push(JSON.stringify(result))
+                    console.log(resultArray);
+                }
+            );
+        })
+    })
+
 
     // Open the DevTools.
     // mainWindow.webContents.openDevTools()
