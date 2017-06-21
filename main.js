@@ -40,15 +40,9 @@ function createWindow() {
     // mainWindow.loadURL('https://www.facebook.com');
 
     var testing = [
-        "https://ms.wikipedia.org/wiki/Ram_Narayan",
-        "https://ta.wikipedia.org/wiki/%E0%AE%B0%E0%AE%BE%E0%AE%AE%E0%AF%8D_%E0%AE%A8%E0%AE%BE%E0%AE%B0%E0%AE%BE%E0%AE%AF%E0%AE%A3%E0%AF%8D",
-        "https://te.wikipedia.org/wiki/%E0%B0%B0%E0%B0%BE%E0%B0%82_%E0%B0%A8%E0%B0%BE%E0%B0%B0%E0%B0%BE%E0%B0%AF%E0%B0%A3%E0%B1%8D",
-        "https://th.wikipedia.org/wiki/%E0%B8%A3%E0%B8%B2%E0%B8%A1_%E0%B8%99%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%B1%E0%B8%93",
-        "https://tr.wikipedia.org/wiki/Ram_Narayan",
-        "https://uk.wikipedia.org/wiki/%D0%A0%D0%B0%D0%BC_%D0%9D%D0%B0%D1%80%D0%B0%D1%8F%D0%BD",
-        "https://ur.wikipedia.org/wiki/%D8%B1%D8%A7%D9%85_%D9%86%D8%A7%D8%B1%D8%A7%D8%A6%D9%86",
-        "https://vi.wikipedia.org/wiki/Ram_Narayan",
-        "https://vo.wikipedia.org/wiki/Ram_Narayan"
+        "https://en.wikipedia.org/wiki/Knowledge"
+        // "http://duckysoftware.com",
+        // "https://en.wikipedia.org/wiki/Culture"
     ];
 
     var resultArray = [];
@@ -90,8 +84,10 @@ function createWindow() {
             $('a').each(function(i, element) {
                 if ($(this).attr("href") !== undefined) {
                     var temp = $(this).attr("href")
-                    if (temp[0] == "h") {
+                    if (temp.startsWith("https://")||temp.startsWith("http://")) {
                         result.links.push(temp);
+                    } else if (temp.startsWith("/")){
+                        result.links.push(pageurl+temp)
                     }
                 }
             });
@@ -101,10 +97,15 @@ function createWindow() {
                 (error, words) => {
                     if (error)
                         throw error;
+                    // console.log(result.title.split(" "))
+                    // console.log(words)
 
-                    result.searchables = words;
+                    words.forEach(function(obj){
+                        result.searchables.push(obj.word.toLowerCase())
+                    })
+                    result.searchables.concat(result.title.split(" "))
                     resultArray.push(JSON.stringify(result))
-                    console.log(resultArray);
+                    console.log(resultArray)
                 }
             );
         })
