@@ -30,74 +30,15 @@
     <script src="https://cdn.firebase.com/libs/firebaseui/2.1.1/firebaseui.js"></script> -->
     <!-- <script src="https://cdn.auth0.com/js/auth0/8.7/auth0.min.js"></script>
     <script type="text/javascript" src="node_modules/auth0-js/build/auth0.js"></script> -->
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script> -->
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
     <script src="bundle.js"></script>
-    <script src="lib/jquery-2.1.3.min.js"></script>
-    <script src="lib/jquery.xmldom.js"></script>
-    <script src="lib/jquery.mockjax.js"></script>
-    <script src="lib/async.js"></script>
-    <!-- Helpers -->
-    <script src="helpers.js"></script>
-    <!-- START ARTOO IMPORTS -->
-    <script src="src/artoo.js"></script>
-    <script src="src/third_party/emmett.js"></script>
-    <script src="src/third_party/jquery.simulate.js"></script>
-    <script src="src/artoo.beep.js"></script>
-    <script src="src/artoo.settings.js"></script>
-    <script src="src/artoo.helpers.js"></script>
-    <script src="src/artoo.parsers.js"></script>
-    <script src="src/artoo.writers.js"></script>
-    <script src="src/artoo.browser.js"></script>
-    <script src="src/artoo.log.js"></script>
-    <script src="src/artoo.dependencies.js"></script>
-    <script src="src/artoo.countermeasures.js"></script>
-    <script src="src/methods/artoo.methods.ajaxSniffer.js"></script>
-    <script src="src/methods/artoo.methods.ajaxSpider.js"></script>
-    <script src="src/methods/artoo.methods.autoExpand.js"></script>
-    <script src="src/methods/artoo.methods.autoScroll.js"></script>
-    <!--     <script src="src/methods/artoo.methods.cookies.js"></script>
-    <script src="src/methods/artoo.methods.save.js"></script> -->
-    <script src="src/methods/artoo.methods.scrape.js"></script>
-    <script type="text/javascript">
-    artoo.on('ready', function() {
-
-        artoo.ajaxSpider([
-        'https://en.wikipedia.org/wiki/Auriscalpium_vulgare'
-        ],{
-
-            scrape: {
-                iterator: "a",
-                data: "href",
-                method: "getJSONP",
-                dataType: "jsonp"
-            }
-        }, function(data) {
-            console.log("Retrieved Data", data)
-        });
-    });
-
-    //  artoo.on('ready', function() {
-    //     artoo.ajaxSpider(
-    //         function() {
-    //             return 'http://medialab.github.io/artoo/spiders';
-    //         }, {
-    //             method: 'getJSON',
-    //             process: function(data) {
-    //                 return data.posts;
-    //             },
-    //             throttle: 3000,
-    //             limit: 10
-    //         },
-    //         function(data) {
-    //             console.log('Retrieved data:', data);
-    //         }
-    //     );
-    // });
-    </script>
-    <script src="src/artoo.init.js"></script>
 </body>
+<script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
 
 </html>

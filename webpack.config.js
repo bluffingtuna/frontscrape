@@ -1,3 +1,6 @@
+var webpack = require("webpack");
+// const remote = window.require('electron').remote;
+
 module.exports = {
 
   // This is the entry point or start of our react applicaton
@@ -18,6 +21,7 @@ module.exports = {
         // node modules and server files unnecessarily
         include: /app/,
         loader: "babel",
+        exclude: /node_modules/,
         query: {
           // These are the specific transformations we'll be using.
           presets: ["react", "es2015", "stage-0"]
@@ -27,5 +31,11 @@ module.exports = {
   },
   // This lets us debug our react code in chrome dev tools. Errors will have lines and file names
   // Without this the console says all errors are coming from just coming from bundle.js
-  devtool: "eval-source-map"
+  devtool: "eval-source-map",
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.IgnorePlugin(new RegExp("^(fs|ipc)$")),
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin()
+  ]
 };
