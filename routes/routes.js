@@ -27,7 +27,7 @@ module.exports = function(app, io, Page, Queue, User) {
         console.log("====================================")
         console.log("Scraped data received #/index")
         console.log("====================================")
-        Queue.find({}).limit(5).remove().exec();
+        Queue.find({}).limit(10).remove().exec();
         console.log("Removing scraped URLs from Queue db")
 
         req.body.forEach(element => {
@@ -75,7 +75,7 @@ module.exports = function(app, io, Page, Queue, User) {
 
     //Calling Queues from the db
     app.post('/queues', (req, res) => {
-        var q = Queue.find({}).limit(5);
+        var q = Queue.find({}).limit(10);
         q.exec(function(err, doc) {
             if (err) {
                 console.log("error");
