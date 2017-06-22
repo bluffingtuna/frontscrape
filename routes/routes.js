@@ -1,7 +1,7 @@
 var path = require('path');
 var passport = require('passport');
 
-module.exports = function(app, io, Page, Queue) {
+module.exports = function(app, io, Page, Queue, User) {
     app.get('/', (req, res) => { //root route sends index.html
         res.sendFile(path.join(__dirname, "../public/index.html"));
     });
@@ -56,7 +56,7 @@ module.exports = function(app, io, Page, Queue) {
     });
 
 
-    // PASSPORT AUTH STARTS HERE
+    // PASSPORT AUTH STUFF STARTS HERE
 
     // /* GET login page. */
     // app.get('/', function(req, res) {
@@ -89,7 +89,25 @@ module.exports = function(app, io, Page, Queue) {
         console.log('User logout succesful\'ish');
     });
 
-    // PASSPORT AUTH ENDS HERE
+    app.get('/user', function(req, res) {
+    	res.json(req.user);
+    });
+
+    app.post('/delete/:email', function(req, res) {
+    	User.remove({email: req.params.email}, function(err) {
+    		if (err) console.log(err);
+    		res.redirect('/');
+    	});
+    });
+
+    app.get('/contributionScore/:email', function(req, res) {
+    	User.find({email: req.params.email}, function (err, response) {
+    		if (err) console.log(err);
+    		res.json(response[0].contributionScore);
+    	});
+    });
+
+    // PASSPORT AUTH STUFF ENDS HERE
 
 
     io.on('connection', socket => {

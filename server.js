@@ -28,19 +28,12 @@ var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
 var session = require("express-session");
 var bcryptjs = require("bcryptjs");
-// var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
 
 // PASSPORT INITIALIZATION (Please do not move!)
-// app.use(express.cookieParser('keyboard cat'));
-// app.use(express.session({ cookie: { maxAge: 60000 } }));
+app.use(session({ secret: 'secret', cookie: { maxAge: 900000 } }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(session({
-    secret: 'secret'
-        // saveUninitialized: true,
-        // resave: true
-}));
 app.use(flash());
 
 
@@ -65,7 +58,7 @@ app.use(function(req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public")); //serves public folder
-require("./routes/routes.js")(app, io, Page, Queue); //imported function sets up routes and io logic;
+require("./routes/routes.js")(app, io, Page, Queue, User); //imported function sets up routes and io logic;
 
 
 // PASSPORT CONFIGURATION (Please do not move!)

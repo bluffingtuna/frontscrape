@@ -5,24 +5,26 @@ class Contributions extends Component {
 	constructor() {
 		super();
 		this.state = {
-			scrapeUser: 0
+			contributionScore: 'Please log-in!'
 		}
 	// 	// this.getArticles = this.getArticles.bind(this);
 	// 	this.getSaved = this.getSaved.bind(this);
 	// 	this.renderArticles = this.renderArticles.bind(this);
 	}
-	componentWillMount() {
-		// API.getScrapeUser(userId).then((res) => {
-		// 	this.setState({scrapeUser: res});
-		// });
-	}
-	componentWillReceiveProps() {
+	// componentWillMount() {
+	// 	API.getContributionScore(this.props.email).then((res) => {
+	// 		this.setState({contributionScore: res});
+	// 	});
+	// }
+	componentWillReceiveProps(nextProps) {
 		// console.log('TAG');
 		// this.getArticles();
 
-		// API.getScrapeUser(userId).then((res) => {
-		// 	this.setState({scrapeUser: res});
-		// });
+		if (nextProps.email) {
+			API.getContributionScore(nextProps.email).then((res) => {
+				this.setState({contributionScore: res.data});
+			});
+		}
 	}
 	// getSaved() {
 	// 	this.props.getSaved();
@@ -44,7 +46,7 @@ class Contributions extends Component {
 				    Your Pages Scraped
 				  </div>
 				  <div className="card-block">
-				    <h1>{this.state.scrapeUser}</h1>
+				    <h1>{this.state.contributionScore}</h1>
 				  </div>
 				</div>
 			</div>

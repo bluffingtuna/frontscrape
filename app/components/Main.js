@@ -9,30 +9,39 @@ class Main extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			query: ''
+			query: '',
+			email: ''
 		}
 		// this.getSaved = this.getSaved.bind(this);
-		this.setParent = this.setParent.bind(this);
+		this.setParentQuery = this.setParentQuery.bind(this);
+		this.setParentEmail = this.setParentEmail.bind(this);
 	}
 	// getSaved() {
 	// 	this.child.getSaved();
 	// }
-	setParent(query) {
+	setParentQuery(query) {
 		this.setState({
 			query: query
+		});
+	}
+	setParentEmail(email) {
+		this.setState({
+			email: email
 		});
 	}
 	render() {
 		if (!this.state.query.length) {
 			return (
 				<div className="site d-flex flex-column container-fluid">
-					<Navbar setParent={this.setParent}/>
+					<Navbar setParentEmail={this.setParentEmail}/>
 					<br/>
 					<br/>
 					<div className="main flex-grow container-fluid">
-						<Query setParent={this.setParent}/>
+						<Query
+							query={this.state.query}
+							setParentQuery={this.setParentQuery}/>
 						<br/>
-						<Stats />
+						<Stats email={this.state.email}/>
 					</div>
 					<br/>
 					<Footer />
@@ -41,10 +50,12 @@ class Main extends Component {
 		} else if (this.state.query.length) {
 			return (
 				<div className="site d-flex flex-column container-fluid">
-					<Navbar setParent={this.setParent}/>
+					<Navbar setParentEmail={this.setParentEmail}/>
 					<br/>
 					<div className="main flex-grow container-fluid">
-						<Query setParent={this.setParent}/>
+						<Query
+							query={this.state.query}
+							setParentQuery={this.setParentQuery}/>
 						<br/>
 						<Results query={this.state.query}/>
 					</div>
@@ -81,3 +92,6 @@ export default Main;
 					// <Results query={this.state.query}/>
 
 						// {this.props.children}
+
+// setParent={this.setParent}
+// setParent={this.setParent}
