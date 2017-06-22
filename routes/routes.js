@@ -85,7 +85,8 @@ module.exports = function(app, io, Page, Queue, User) {
     });
 
 
-    // PASSPORT AUTH STUFF STARTS HERE
+
+    // JOHN'S STUFF (MOSTLY PASSPORT AUTH AND INDIVIDUAL ACCOUNT STUFF) STARTS HERE
 
     // /* GET login page. */
     // app.get('/', function(req, res) {
@@ -136,7 +137,8 @@ module.exports = function(app, io, Page, Queue, User) {
         });
     });
 
-    // PASSPORT AUTH STUFF ENDS HERE
+    // JOHN'S STUFF (MOSTLY PASSPORT AUTH AND INDIVIDUAL ACCOUNT STUFF) ENDS HERE
+
 
 
     //     io.on('connection', socket => {
@@ -159,7 +161,7 @@ module.exports = function(app, io, Page, Queue, User) {
 
 }
 
-const tokenExp = /[^\s\t]+/g;
+const tokenExp = /[^\+]+/g;
 const stopwords = require('stopwords').english;
 var tokenize = function(string) {
     const tokens = [];

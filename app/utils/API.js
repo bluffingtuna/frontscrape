@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const API = {
 	getResults: (query) => {
-		var queryURLBase = '';
+		var queryURLBase = '/index/';
 		var queryURL = queryURLBase + query;
 		return axios.get(queryURL);
 	},
