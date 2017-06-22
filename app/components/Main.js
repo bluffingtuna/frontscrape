@@ -28,6 +28,7 @@ class Main extends Component {
 				<div className="site d-flex flex-column container-fluid">
 					<Navbar setParent={this.setParent}/>
 					<br/>
+					<br/>
 					<div className="main flex-grow container-fluid">
 						<Query setParent={this.setParent}/>
 						<br/>

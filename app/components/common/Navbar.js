@@ -17,14 +17,14 @@ class Navbar extends Component {
                     </button>
                   </div>
                   <div className="modal-body">
-                    <form>
+                    <form action="/signup" method="post">
                       <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Email address</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please enter email address!" required/>
+                        <input type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please enter email address!" required/>
                       </div>
                       <div className="form-group">
                         <label htmlFor="exampleInputPassword1">Password</label>
-                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Please enter password!" required/>
+                        <input type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="Please enter password!" required/>
                       </div>
                       <div className="form-group">
                         <label htmlFor="exampleInputPassword2">Confirm Password (not working yet)</label>
@@ -34,6 +34,7 @@ class Navbar extends Component {
                         <button type="submit" className="btn btn-faded">Submit</button>
                       </div>
                     </form>
+                    <br/>
                   </div>
                 </div>
               </div>
@@ -49,19 +50,20 @@ class Navbar extends Component {
                     </button>
                   </div>
                   <div className="modal-body">
-                    <form>
+                    <form action="/login" method="post">
                       <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Email address</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please enter email address!" required/>
+                        <input type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please enter email address!" required/>
                       </div>
                       <div className="form-group">
                         <label htmlFor="exampleInputPassword1">Password</label>
-                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Please enter password!" required/>
+                        <input type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="Please enter password!" required/>
                       </div>
                       <div className="text-center">
                         <button type="submit" className="btn btn-faded">Submit</button>
                       </div>
                     </form>
+                    <br/>
                   </div>
                 </div>
               </div>
@@ -87,6 +89,11 @@ class Navbar extends Component {
                   &nbsp;
                   <li className="nav-item">
                     <a type="button" className="nav-link btn bg-info text-white" title="Click to Log In" data-toggle="modal" data-target="#logInModal">Log In</a>
+                  </li>
+
+                  &nbsp;
+                  <li className="nav-item">
+                    <a type="button" className="nav-link btn bg-danger text-white" title="Click to Log Out" href="/logout">Log Out</a>
                   </li>
 
                   &nbsp;
