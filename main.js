@@ -13,7 +13,6 @@ const request = require("request")
 const cheerio = require("cheerio")
 const miner = require("keyword-miner")
 const axios = require("axios")
-const fetch = require('electron-fetch')
 
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -51,16 +50,21 @@ function createWindow() {
     //     console.log("connects")
     //     console.log(response)
     // })
-    var testing = [
-        { url: "https://en.wikipedia.org/wiki/Knowledge" },
-        { url: "http://duckysoftware.com" },
-        { url: "https://en.wikipedia.org/wiki/Culture" }
-    ];
 
+
+    // DUMMY DATA
+
+    // var testing = [
+    //     { url: "https://en.wikipedia.org/wiki/Knowledge" },
+    //     { url: "http://duckysoftware.com" },
+    //     { url: "https://en.wikipedia.org/wiki/Culture" }
+    // ];
 
     // axios.post("http://localhost:3000/queue", testing).then(function(response) {
     //     console.log("connecting")
     // })
+
+    // DUMMY DATA
 
 
     //This post will receive URLs from the server to scrape

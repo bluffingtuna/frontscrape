@@ -36,7 +36,7 @@ module.exports = function(app, io, Page, Queue, User) {
                             if (err) {
                                 console.error(err)
                             } else {
-                                new Queue({url:link}).save((err, doc1) => {
+                                new Queue({ url: link }).save((err, doc1) => {
                                     if (err) {
                                         console.log("error in saving Queue")
                                         console.error(err);
@@ -85,23 +85,77 @@ module.exports = function(app, io, Page, Queue, User) {
     });
 
 
-//     io.on('connection', socket => {
-//         console.log('socket connected on ' + socket.id);
+    // PASSPORT AUTH STUFF STARTS HERE
 
-//         socket.emit('bundle', { hello: 'world' });
+    // /* GET login page. */
+    // app.get('/', function(req, res) {
+    //     // Display the Login page with any flash message, if any
+    //     res.render('index', { message: req.flash('message') });
+    // });
 
-//         socket.on('send more', () => {
-//             socket.emit('bundle', { hello: 'world' });
-//         });
+    /* Handle Login POST */
+    app.post('/login', passport.authenticate('login', {
+        successRedirect: '/',
+        failureRedirect: '/',
+        failureFlash: true
+    }));
 
-//         socket.on('data', data => {
-//             console.log(data);
-//         });
+    // /* GET Registration Page */
+    // app.get('/signup', function(req, res) {
+    //     res.render('register', { message: req.flash('message') });
+    // });
 
-//         socket.on('disconnect', function() {
-//             console.log('user disconnected');
-//         });
-//     });
+    /* Handle Registration POST */
+    app.post('/signup', passport.authenticate('signup', {
+        successRedirect: '/',
+        failureRedirect: '/',
+        failureFlash: true
+    }));
+
+    app.get('/logout', function(req, res) {
+        req.logout();
+        res.redirect('/');
+        console.log('User logout succesful\'ish');
+    });
+
+    app.get('/user', function(req, res) {
+        res.json(req.user);
+    });
+
+    app.post('/delete/:email', function(req, res) {
+        User.remove({ email: req.params.email }, function(err) {
+            if (err) console.log(err);
+            res.redirect('/');
+        });
+    });
+
+    app.get('/contributionScore/:email', function(req, res) {
+        User.find({ email: req.params.email }, function(err, response) {
+            if (err) console.log(err);
+            res.json(response[0].contributionScore);
+        });
+    });
+
+    // PASSPORT AUTH STUFF ENDS HERE
+
+
+    //     io.on('connection', socket => {
+    //         console.log('socket connected on ' + socket.id);
+
+    //         socket.emit('bundle', { hello: 'world' });
+
+    //         socket.on('send more', () => {
+    //             socket.emit('bundle', { hello: 'world' });
+    //         });
+
+    //         socket.on('data', data => {
+    //             console.log(data);
+    //         });
+
+    //         socket.on('disconnect', function() {
+    //             console.log('user disconnected');
+    //         });
+    //     });
 
 }
 
