@@ -72,20 +72,26 @@ function createWindow() {
             console.log("==============================================")
             console.log("List of URLs received from the Server #/queues")
             console.log("==============================================")
+            // console.log(response1.data)
             var newArray = response1.data
             var urlArray = []
             var resultArray = []
             var count = 0
             newArray.forEach(element => {
+            	console.log(element)
                 urlArray.push(element.url)
             })
             urlArray.forEach(function(link, count) {
                 count++;
+                // console.log(count)
+                // console.log(link)
                 var pageurl = link;
+
+                //keyword mining options
                 var options = {
                     site: pageurl,
                     // only include words with at least n occurences, default 0 (no threshold) 
-                    threshold: 2,
+                    threshold: 3,
                     // limit output count, default 0 (no limit) 
                     limit: 0,
 
@@ -132,9 +138,10 @@ function createWindow() {
                                     words.forEach(function(obj) {
                                             result.searchables.push(obj.word.toLowerCase())
                                         })
-                                        // console.log(result.title)
+                                        console.log(result.title)
                                         // result.searchables.concat(result.title.split(" "))
                                     resultArray.push(JSON.stringify(result))
+                                    console.log(count)
                                     if (count == urlArray.length) {
                                         console.log("==========================================")
                                         console.log("Scraped data sent to the Server #/index")
@@ -143,6 +150,8 @@ function createWindow() {
                                             console.log(response2);
                                         })
                                     }
+                                } else {
+                                	urlArray.pop()
                                 }
                             }
                         );

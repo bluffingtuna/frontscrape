@@ -24,6 +24,12 @@ module.exports = function(app, io, Page, Queue, User) {
     });
 
     app.post('/index', (req, res) => {
+        console.log("====================================")
+        console.log("Scraped data received #/index")
+        console.log("====================================")
+        Queue.find({}).limit(5).remove().exec();
+        console.log("Removing scraped URLs from Queue db")
+
         req.body.forEach(element => {
             var newElement = JSON.parse(element)
             new Page(newElement).save((err, doc) => {
@@ -41,8 +47,7 @@ module.exports = function(app, io, Page, Queue, User) {
                                         console.log("error in saving Queue")
                                         console.error(err);
                                     } else {
-                                        console.log("going in")
-                                        console.log(doc1)
+
                                     }
                                 })
 
