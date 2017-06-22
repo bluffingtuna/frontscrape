@@ -9,5 +9,5 @@ module.exports = function(mongoose){
             default: 0
         }
     });
-    return Page = mongoose.model("Page", PageSchema);
+    return Queue = mongoose.model("Queue", QueueSchema);
 }

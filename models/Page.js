@@ -4,7 +4,7 @@ module.exports = function(mongoose){
             type: String,
             required: true
         },
-        url: {
+        pageurl: {
             type: String,
             required: true
         },

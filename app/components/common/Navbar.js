@@ -72,7 +72,7 @@ class Navbar extends Component {
                 <span className="navbar-toggler-icon"></span>
               </button>
               <a className="navbar-brand" href="/">
-                <img src="/images/redesigned_MI.jpg" id="mainLogo" className="d-inline-block align-top" alt="MI"/>
+                <img src="./images/redesigned_MI.jpg" id="mainLogo" className="d-inline-block align-top" alt="MI"/>
                 &nbsp;Moose Industries
               </a>
 
