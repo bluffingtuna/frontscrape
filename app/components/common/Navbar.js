@@ -13,11 +13,12 @@ class Navbar extends Component {
     componentWillMount() {
       API.getUser().then(res => {
         this.setState({email: res.data.email});
+        this.props.setParentEmail(res.data.email);
       });
     }
-    componentWillReceiveProps() {
+    // componentWillReceiveProps() {
 
-    }
+    // }
     render() {
 
       if (this.state.email) {

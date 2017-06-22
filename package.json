@@ -27,6 +27,7 @@
     "express": "^4.14.0",
     "express-session": "^1.15.3",
     "http": "0.0.0",
+    "keyword-miner": "^0.4.3",
     "less": "^2.5.1",
     "less-loader": "^2.2.0",
     "mongoose": "^4.7.5",

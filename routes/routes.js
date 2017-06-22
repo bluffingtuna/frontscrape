@@ -100,6 +100,13 @@ module.exports = function(app, io, Page, Queue, User) {
     	});
     });
 
+    app.get('/contributionScore/:email', function(req, res) {
+    	User.find({email: req.params.email}, function (err, response) {
+    		if (err) console.log(err);
+    		res.json(response[0].contributionScore);
+    	});
+    });
+
     // PASSPORT AUTH STUFF ENDS HERE
 
 

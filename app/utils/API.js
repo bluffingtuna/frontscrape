@@ -10,9 +10,9 @@ const API = {
 		var queryURL = '';
 		return axios.get(queryURL);
 	},
-	getScrapeUser: (user) => {
-		var queryURLBase = '';
-		var queryURL = queryURLBase + user;
+	getContributionScore: (email) => {
+		var queryURLBase = '/contributionScore/';
+		var queryURL = queryURLBase + email;
 		return axios.get(queryURL);
 	},
 	getUser: () => {
