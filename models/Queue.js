@@ -1,4 +1,4 @@
-module.exports = function(mongoose){
+module.exports = function(mongoose) {
     const QueueSchema = mongoose.Schema({
         url: {
             type: String,
@@ -10,4 +10,6 @@ module.exports = function(mongoose){
         }
     });
     return Queue = mongoose.model("Queue", QueueSchema);
+
 }
+

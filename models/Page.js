@@ -1,4 +1,4 @@
-module.exports = function(mongoose){
+module.exports = function(mongoose) {
     const PageSchema = mongoose.Schema({
         title: {
             type: String,

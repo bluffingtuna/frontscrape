@@ -31,10 +31,14 @@ a, button {
   cursor: pointer;
 }
 
+.card-header {
+  background-color: silver;
+}
+
 #errorMessage {
   text-align: center;
-  font-weight: bold;
-  font-style: italic;
+/*  font-weight: bold;
+  font-style: italic;*/
 }
 
 /*.listings {

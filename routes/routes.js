@@ -1,38 +1,32 @@
 var path = require('path');
+var passport = require('passport');
 
-module.exports = function(app, io, Page, Queue) {
-    app.get('*', (req, res) => { //root route sends index.html
+module.exports = function(app, io, Page, Queue, User) {
+    app.get('/', (req, res) => { //root route sends index.html
         res.sendFile(path.join(__dirname, "../public/index.html"));
     });
 
-    app.get('/login', (req, res) => { //sends login page
-        res.sendFile('../public/login.html');
+    app.get('/index/:query', (req, res) => {
+        var query = tokenize(req.params.query); //gives array of words
+        Page.find({
+            searchables: {
+                $in: query
+            }
+        }).sort({
+            pagescore: 'desc'
+        }).exec((err, doc) => {
+            if (err) {
+                console.error(err);
+            } else {
+                res.json(doc);
+            }
+        });
     });
 
-    // app.get('/index/:query', (req, res) => {
-    //     var query = tokenize(req.params.query); //gives array of words
-    //     Page.find({
-    //         searchables: {
-    //             $in: query
-    //         }
-    //     }).sort({
-    //         pagescore: 'desc'
-    //     }).exec((err, doc) => {
-    //         if (err) {
-    //             console.error(err);
-    //         } else {
-    //             res.json(doc);
-    //         }
-    //     });
-    // });
-
     app.post('/index', (req, res) => {
-        console.log("====================================")
-        console.log("Scraped data received from #/index")
-        console.log("====================================")
         req.body.forEach(element => {
-            var newElement = JSON.parse(element)
-            new Page(newElement).save((err, doc) => {
+            new Page(element).save((err, doc) => {
+
                 if (err) {
                     console.error(err);
                 } else {
@@ -50,6 +44,7 @@ module.exports = function(app, io, Page, Queue) {
                                         console.log(doc1)
                                     }
                                 })
+
                             }
                         })
                     });
@@ -106,7 +101,9 @@ module.exports = function(app, io, Page, Queue) {
 //             console.log('user disconnected');
 //         });
 //     });
+
 }
+
 const tokenExp = /[^\s\t]+/g;
 const stopwords = require('stopwords').english;
 var tokenize = function(string) {

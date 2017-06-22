@@ -1,9 +1,81 @@
 import React, {Component} from "react";
 import { Link } from "react-router";
+import API from '../../utils/API';
 // "import Auth from '../../Auth';"
 
 class Navbar extends Component {
+    constructor() {
+      super();
+      this.state = {
+        email: ''
+      }
+    }
+    componentWillMount() {
+      API.getUser().then(res => {
+        this.setState({email: res.data.email});
+        this.props.setParentEmail(res.data.email);
+      });
+    }
+    // componentWillReceiveProps() {
+
+    // }
     render() {
+
+      if (this.state.email) {
+        return (
+          <div className="navbar container-fluid">
+
+            <div className="modal fade" id="accountModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">Sign Up</h5>
+                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div className="modal-body">
+                    <br/>
+                    <form action={'/delete/' + this.state.email} method="post">
+                      <div className="text-center">
+                        <button type="submit" className="btn btn-danger">Delete Account</button>
+                      </div>
+                    </form>
+                    <br/>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <nav className="navbar navbar-toggleable-md navbar-light bg-primary">
+              <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <a className="navbar-brand" href="/">
+                <img src="/images/redesigned_MI.jpg" id="mainLogo" className="d-inline-block align-top" alt="MI"/>
+                &nbsp;Moose Industries
+              </a>
+
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav ml-auto">
+                  <br/>
+
+                  <li className="nav-item">
+                    <a type="button" className="nav-link btn bg-warning text-white" title="Access Your Account" data-toggle="modal" data-target="#accountModal">{this.state.email}</a>
+                  </li>
+
+                  &nbsp;
+                  <li className="nav-item">
+                    <a type="button" className="nav-link btn bg-danger text-white" title="Click to Log Out" href="/logout">Log Out</a>
+                  </li>
+
+                  &nbsp;
+                </ul>
+              </div>
+            </nav>
+          </div>
+        );
+      } else {
         return (
           <div className="navbar container-fluid">
 
@@ -17,23 +89,24 @@ class Navbar extends Component {
                     </button>
                   </div>
                   <div className="modal-body">
-                    <form>
+                    <form action="/signup" method="post">
                       <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Email address</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please enter email address!" required/>
+                        <input type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please enter email address!" required/>
                       </div>
                       <div className="form-group">
-                        <label htmlFor="exampleInputPassword1">Password</label>
-                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Please enter password!" required/>
+                        <label htmlFor="exampleInputPassword1">Password (we encrypt passwords to protect users)</label>
+                        <input type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="Please enter password!" required/>
                       </div>
                       <div className="form-group">
-                        <label htmlFor="exampleInputPassword2">Confirm Password (not working yet)</label>
+                        <label htmlFor="exampleInputPassword2">Confirm Password (we encrypt passwords to protect users)</label>
                         <input type="password" className="form-control" id="exampleInputPassword2" placeholder="Please confirm password (not working yet)!" required/>
                       </div>
                       <div className="text-center">
-                        <button type="submit" className="btn btn-faded">Submit</button>
+                        <button type="submit" className="btn btn-primary">Submit</button>
                       </div>
                     </form>
+                    <br/>
                   </div>
                 </div>
               </div>
@@ -49,19 +122,20 @@ class Navbar extends Component {
                     </button>
                   </div>
                   <div className="modal-body">
-                    <form>
+                    <form action="/login" method="post">
                       <div className="form-group">
                         <label htmlFor="exampleInputEmail1">Email address</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please enter email address!" required/>
+                        <input type="email" name="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Please enter email address!" required/>
                       </div>
                       <div className="form-group">
                         <label htmlFor="exampleInputPassword1">Password</label>
-                        <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Please enter password!" required/>
+                        <input type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="Please enter password!" required/>
                       </div>
                       <div className="text-center">
-                        <button type="submit" className="btn btn-faded">Submit</button>
+                        <button type="submit" className="btn btn-primary">Submit</button>
                       </div>
                     </form>
+                    <br/>
                   </div>
                 </div>
               </div>
@@ -95,6 +169,7 @@ class Navbar extends Component {
             </nav>
           </div>
         );
+      }
     }
 }
 

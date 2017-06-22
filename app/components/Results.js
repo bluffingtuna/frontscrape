@@ -18,12 +18,12 @@ class Results extends Component {
 		this.renderResults = this.renderResults.bind(this);
 		this.renderPagination = this.renderPagination.bind(this);
 	}
-	componentWillMount(nextProps) {
+	componentWillMount() {
 
 
 
 		// REMEMBER TO TRIM AND TOLOWERCASE THE QUERY INPUTTED INTO PARAMS OF THE API CALL URL
-		// API.getResults(nextProps.query).then((res) => {
+		// API.getResults(this.props.query.trim().toLowerCase()).then((res) => {
 		// 	this.setState({results: res});
 		// });
 
@@ -92,7 +92,7 @@ class Results extends Component {
 
 
 		// REMEMBER TO TRIM AND TOLOWERCASE THE QUERY INPUTTED INTO PARAMS OF THE API CALL URL
-		// API.getResults(nextProps.query).then((res) => {
+		// API.getResults(nextProps.query.trim().toLowerCase()).then((res) => {
 		// 	this.setState({results: res});
 		// });
 
@@ -246,9 +246,21 @@ class Results extends Component {
 		} else if (this.state.results.length == 0) {
 			return (
 				<div className="container-fluid">
-					<br/>
-					<div id="errorMessage">Your search did not yield any results.</div>
-					<br/>
+					<div className="card">
+						<div className="card-header text-center">
+						Results
+						</div>
+						<div className="row">
+						  <div className="col-1">
+						  </div>
+						  <div className="col-10">
+						  	<br/>
+						  	<p id="errorMessage">Sorry, your search did not yield any results.</p>
+						  </div>
+						  <div className="col-1">
+						  </div>
+						</div>
+					</div>
 				</div>
 			);
 		}

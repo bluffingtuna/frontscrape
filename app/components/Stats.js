@@ -24,10 +24,13 @@ class Stats extends Component {
 	// 	});
 	// }
 	render() {
+
+		// console.log(this.props.email);
+
 		return (
 			<div className="container-fluid">
 				<Total />
-				<Contributions />
+				<Contributions email={this.props.email}/>
 			</div>
 		);
 	}
