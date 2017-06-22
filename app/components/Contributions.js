@@ -12,7 +12,7 @@ class Contributions extends Component {
 	// 	this.renderArticles = this.renderArticles.bind(this);
 	}
 	componentWillMount() {
-		// API.getScrapeUser(userId).then((res) => {
+		// API.getScrapeUser(user).then((res) => {
 		// 	this.setState({scrapeUser: res});
 		// });
 	}
@@ -20,7 +20,7 @@ class Contributions extends Component {
 		// console.log('TAG');
 		// this.getArticles();
 
-		// API.getScrapeUser(userId).then((res) => {
+		// API.getScrapeUser(user).then((res) => {
 		// 	this.setState({scrapeUser: res});
 		// });
 	}

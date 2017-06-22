@@ -9,11 +9,14 @@ class Query extends Component {
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleButtonClick = this.handleButtonClick.bind(this);
 	}
+	componentWillMount() {
+		this.setState({query: this.props.query});
+	}
 	handleInputChange(event) {
 		this.setState({ [event.target.name]: event.target.value });
 	}
 	handleButtonClick() {
-		this.props.setParent(this.state.query);
+		this.props.setParentQuery(this.state.query);
 	}
 	render() {
 
