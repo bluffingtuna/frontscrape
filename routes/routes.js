@@ -25,7 +25,8 @@ module.exports = function(app, io, Page, Queue, User) {
 
     app.post('/index', (req, res) => {
         req.body.forEach(element => {
-            new Page(element).save((err, doc) => {
+            var newElement = JSON.parse(element)
+            new Page(newElement).save((err, doc) => {
 
                 if (err) {
                     console.error(err);
