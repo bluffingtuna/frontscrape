@@ -1,5 +1,6 @@
 {
   "name": "Solved",
+  "productName": "Moose",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -51,6 +52,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.24.1",
     "electron": "^1.6.11",
+    "electron-packager": "^4.2.0",
     "minimist": "^1.2.0",
     "webpack": "^1.14.0",
     "webpack-target-electron-renderer": "^0.4.0"
