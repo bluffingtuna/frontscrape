@@ -5,7 +5,7 @@ class Total extends Component {
 	constructor() {
 		super();
 		this.state = {
-			scrapeTotal: 0
+			totalScore: 0
 		}
 	// 	// this.getArticles = this.getArticles.bind(this);
 	// 	this.getSaved = this.getSaved.bind(this);
@@ -21,9 +21,13 @@ class Total extends Component {
 		// console.log('TAG');
 		// this.getArticles();
 
-		// API.getScrapeTotal().then((res) => {
-		// 	this.setState({scrapeTotal: res});
-		// });
+		API.getTotalScore().then((res) => {
+			this.setState({totalScore: res.data});
+		});
+
+		setInterval(() => {API.getTotalScore().then((res) => {
+			this.setState({totalScore: res.data});
+		});}, 5000);
 	}
 	// getSaved() {
 	// 	this.props.getSaved();
@@ -45,7 +49,7 @@ class Total extends Component {
 				    Total Pages Scraped 
 				  </div>
 				  <div className="card-block">
-				    <h1>{this.state.scrapeTotal}</h1>
+				    <h1>{this.state.totalScore}</h1>
 				  </div>
 				</div>
 			</div>
