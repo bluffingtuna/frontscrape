@@ -3,11 +3,12 @@
   "productName": "Moose",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "server.js",
   "scripts": {
     "dev": "webpack -w",
-    "start": "electron .",
-    "server": "node server.js"
+    "start": "node server.js",
+    "server": "node server.js",
+    "electron": "electron ."
   },
   "keywords": [],
   "author": "",
