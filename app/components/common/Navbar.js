@@ -98,10 +98,6 @@ class Navbar extends Component {
                         <label htmlFor="exampleInputPassword1">Password (we encrypt passwords to protect users)</label>
                         <input type="password" name="password" className="form-control" id="exampleInputPassword1" placeholder="Please enter password!" required/>
                       </div>
-                      <div className="form-group">
-                        <label htmlFor="exampleInputPassword2">Confirm Password (we encrypt passwords to protect users)</label>
-                        <input type="password" className="form-control" id="exampleInputPassword2" placeholder="Please confirm password (not working yet)!" required/>
-                      </div>
                       <div className="text-center">
                         <button type="submit" className="btn btn-primary">Submit</button>
                       </div>
@@ -213,3 +209,8 @@ export default Navbar;
                   // &nbsp;
 
  // onClick={() => this.props.setParent('')}
+
+                      //  <div className="form-group">
+                      //   <label htmlFor="exampleInputPassword2">Confirm Password (we encrypt passwords to protect users)</label>
+                      //   <input type="password" className="form-control" id="exampleInputPassword2" placeholder="Please confirm password (not working yet)!" required/>
+                      // </div>

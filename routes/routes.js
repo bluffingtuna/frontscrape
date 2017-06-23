@@ -143,6 +143,13 @@ module.exports = function(app, io, Page, Queue, User) {
         });
     });
 
+    app.get('/totalScore', function(req, res) {
+    	Page.count({}, function(err, c) {
+    		if (err) console.log(err);
+    		res.json(c);
+    	});
+    });
+
     // JOHN'S STUFF (MOSTLY PASSPORT AUTH AND INDIVIDUAL ACCOUNT STUFF) ENDS HERE
 
 

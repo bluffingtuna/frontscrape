@@ -6,8 +6,8 @@ const API = {
 		var queryURL = queryURLBase + query;
 		return axios.get(queryURL);
 	},
-	getScrapeTotal: () => {
-		var queryURL = '';
+	getTotalScore: () => {
+		var queryURL = '/totalScore';
 		return axios.get(queryURL);
 	},
 	getContributionScore: (email) => {
