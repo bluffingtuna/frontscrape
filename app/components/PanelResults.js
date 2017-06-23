@@ -12,8 +12,8 @@ class PanelResults extends Component {
 	render() {
 		return (
 		  <div key={this.props.result.key} className="card-block">
-		    <h4 id="resultTitle" className="card-title"><a href={this.props.result.url} target="_blank">{this.props.result.title}</a></h4>
-		    <p id="resultURL" className="card-text">{this.props.result.url}</p>
+		    <h4 id="resultTitle" className="card-title"><a href={this.props.result.pageurl} target="_blank">{this.props.result.title}</a></h4>
+		    <p id="resultURL" className="card-text">{this.props.result.pageurl}</p>
 		  </div>
 		);
 	}

@@ -5,17 +5,21 @@ class Contributions extends Component {
 	constructor() {
 		super();
 		this.state = {
-			contributionScore: 'Please log-in!'
+			contributionScore: 'Please log in to see!'
 		}
 	// 	// this.getArticles = this.getArticles.bind(this);
 	// 	this.getSaved = this.getSaved.bind(this);
 	// 	this.renderArticles = this.renderArticles.bind(this);
 	}
-	// componentWillMount() {
-	// 	API.getContributionScore(this.props.email).then((res) => {
-	// 		this.setState({contributionScore: res});
-	// 	});
-	// }
+	componentWillMount() {
+
+		// if (this.props.email) {
+		// 	API.getContributionScore(this.props.email).then((res) => {
+		// 		this.setState({contributionScore: res.data});
+		// 	});
+		// }
+
+	}
 	componentWillReceiveProps(nextProps) {
 		// console.log('TAG');
 		// this.getArticles();

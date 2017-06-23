@@ -31,7 +31,6 @@ module.exports = function(app, io, Page, Queue, User) {
         req.body.forEach(element => {
             var newElement = JSON.parse(element)
             new Page(newElement).save((err, doc) => {
-
                 if (err) {
                     console.error(err);
                 } else {
@@ -40,17 +39,16 @@ module.exports = function(app, io, Page, Queue, User) {
                             if (err) {
                                 console.error(err)
                             } else {
-                                new Queue({ url: link }).save((err, doc1) => {
-                                    if (err) {
-                                        console.log("error in saving Queue")
-                                        console.error(err);
+                                new Queue({ url: link }).save((err1, doc1) => {
+                                    if (err1) {
+                                        console.error(err1);
                                     } else {
-
+                                        
                                     }
-                                })
+                                });
 
                             }
-                        })
+                        });
                     });
                 }
             });
@@ -90,7 +88,8 @@ module.exports = function(app, io, Page, Queue, User) {
     });
 
 
-    // PASSPORT AUTH STUFF STARTS HERE
+
+    // JOHN'S STUFF (MOSTLY PASSPORT AUTH AND INDIVIDUAL ACCOUNT STUFF) STARTS HERE
 
     // /* GET login page. */
     // app.get('/', function(req, res) {
@@ -141,7 +140,8 @@ module.exports = function(app, io, Page, Queue, User) {
         });
     });
 
-    // PASSPORT AUTH STUFF ENDS HERE
+    // JOHN'S STUFF (MOSTLY PASSPORT AUTH AND INDIVIDUAL ACCOUNT STUFF) ENDS HERE
+
 
 
     //     io.on('connection', socket => {
@@ -164,7 +164,7 @@ module.exports = function(app, io, Page, Queue, User) {
 
 }
 
-const tokenExp = /[^\s\t]+/g;
+const tokenExp = /[^\+]+/g;
 const stopwords = require('stopwords').english;
 var tokenize = function(string) {
     const tokens = [];
