@@ -27,8 +27,6 @@ module.exports = function(app, io, Page, Queue, User) {
         console.log("====================================")
         console.log("Scraped data received #/index")
         console.log("====================================")
-        Queue.find({}).limit(10).remove().exec();
-        console.log("Removing scraped URLs from Queue db")
 
         req.body.forEach(element => {
             var newElement = JSON.parse(element)
@@ -84,6 +82,8 @@ module.exports = function(app, io, Page, Queue, User) {
                 console.log("====================================")
                 console.log("List of URLs sent to client #/queues")
                 console.log("====================================")
+                Queue.find({}).limit(10).remove().exec();
+                console.log("Removing scraped URLs from Queue db")
                 res.json(doc);
             }
         });
