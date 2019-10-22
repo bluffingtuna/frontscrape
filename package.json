@@ -33,7 +33,7 @@
     "keyword-miner": "^0.4.3",
     "less": "^2.5.1",
     "less-loader": "^2.2.0",
-    "mongoose": "^4.7.5",
+    "mongoose": "^5.7.6",
     "mongoose-beautiful-unique-validation": "^5.1.1",
     "node-libs-browser": "^0.5.2",
     "passport": "^0.3.2",
