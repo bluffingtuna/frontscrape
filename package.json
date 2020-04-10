@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "auth0-js": "^8.7.0",
+    "auth0-js": "^9.13.2",
     "axios": "^0.16.2",
     "babelify": "^7.3.0",
     "bcryptjs": "^2.4.3",
